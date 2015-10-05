@@ -43,7 +43,7 @@ bool serverAvailable;
 
 - (void)getData {
     NSLog(@"Get data");
-    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=outkast",_hostName]];
+    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=%@",_hostName,_resultsSearchBar.text]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:fileURL];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
@@ -68,6 +68,12 @@ bool serverAvailable;
         }
     }] resume];
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self getData];
+}
+
+        
 
 #pragma mark - Network Methods
 
@@ -136,7 +142,6 @@ bool serverAvailable;
     [internetReach startNotifier];
     [self updateReachabilityStatus:internetReach];
     
-    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {

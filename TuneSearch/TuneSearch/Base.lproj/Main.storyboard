@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKX-3x-Mfm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,8 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Emt-L3-xMB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="yKK-wQ-ne2"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ra2-7T-fql">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultsCell" id="Oxy-RG-Bum">
@@ -40,15 +47,38 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ra2-7T-fql" secondAttribute="bottom" id="15g-9X-QFq"/>
                             <constraint firstItem="ra2-7T-fql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1BY-g0-KyP"/>
+                            <constraint firstItem="Emt-L3-xMB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3cu-mY-uv8"/>
+                            <constraint firstItem="Emt-L3-xMB" firstAttribute="trailing" secondItem="ra2-7T-fql" secondAttribute="trailing" id="AnQ-HE-53Z"/>
+                            <constraint firstItem="Emt-L3-xMB" firstAttribute="leading" secondItem="ra2-7T-fql" secondAttribute="leading" id="L4r-Wg-AN1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ra2-7T-fql" secondAttribute="trailing" constant="-20" id="djK-48-MP5"/>
-                            <constraint firstItem="ra2-7T-fql" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="vST-aS-uOj"/>
+                            <constraint firstItem="ra2-7T-fql" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="vST-aS-uOj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HMe-GO-c1C"/>
                     <connections>
                         <outlet property="iTunesTableView" destination="ra2-7T-fql" id="hVB-kb-Xdv"/>
+                        <outlet property="resultsSearchBar" destination="Emt-L3-xMB" id="RHh-L4-m20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="242"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GUu-vM-Zj3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vKX-3x-Mfm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RBY-sV-Evf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ltz-dK-wBg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdT-3k-k4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="242"/>
         </scene>
