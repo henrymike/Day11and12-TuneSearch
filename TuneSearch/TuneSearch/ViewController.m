@@ -26,6 +26,21 @@ bool serverAvailable;
 
 - (IBAction)getDataPressed:(id)sender {
     NSLog(@"Get data");
+    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/lookup?id=909253",_hostName]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:fileURL];
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+    [request setTimeoutInterval:30.0];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (([data length] > 0) && (error == nil)) {
+            NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"Got data %@",json);
+        }
+        else {
+            NSLog(@"No data");
+        }
+    }] resume];
 }
 
 #pragma mark - Network Methods
@@ -81,7 +96,7 @@ bool serverAvailable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _hostName = @"itunes.apple.com/lookup?id=909253";
+    _hostName = @"itunes.apple.com";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
