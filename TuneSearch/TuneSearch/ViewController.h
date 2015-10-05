@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
+
+@property (nonatomic, strong) NSManagedObjectContext    *managedObjectContext;
+@property (nonatomic, weak)   IBOutlet  UITableView     *iTunesTableView;
 
 @end
 
