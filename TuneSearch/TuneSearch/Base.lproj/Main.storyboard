@@ -43,6 +43,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdZ-ti-2De">
                                                     <rect key="frame" x="8" y="4" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.72204367169999994" green="0.73174248789999996" blue="0.73944848299999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZA-aV-PRa">
                                                     <rect key="frame" x="47" y="17" width="537" height="21"/>
@@ -52,6 +53,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="artistNameLabel" destination="aZA-aV-PRa" id="Nic-Jk-qDW"/>
                                             <outlet property="trackNameLabel" destination="LaS-hD-F8J" id="hHp-Ox-6zK"/>
@@ -104,35 +106,66 @@
                                     <navigationItem title="Details" id="rLW-so-hfw"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQt-3Y-FAO">
-                                <rect key="frame" x="174" y="108" width="398" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQt-3Y-FAO">
+                                <rect key="frame" x="135" y="100" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-do-MtB">
+                                <rect key="frame" x="135" y="75" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-do-MtB">
-                                <rect key="frame" x="174" y="84" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-MM-dCy">
+                                <rect key="frame" x="135" y="140" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-xm-SVx">
-                                <rect key="frame" x="174" y="132" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-MM-dCy">
-                                <rect key="frame" x="174" y="155" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSw-bC-qak">
-                                <rect key="frame" x="20" y="72" width="146" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qSw-bC-qak">
+                                <rect key="frame" x="20" y="72" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.79215686269999996" green="0.79607843140000001" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="45S-zf-0cC"/>
+                                    <constraint firstAttribute="width" constant="100" id="lmE-mD-3Hu"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-xm-SVx">
+                                <rect key="frame" x="135" y="120" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="2h8-82-BlG"/>
+                            <constraint firstItem="oqd-do-MtB" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="5M4-4k-ryb"/>
+                            <constraint firstItem="cQt-3Y-FAO" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="4" id="Bsd-7Z-Bdd"/>
+                            <constraint firstItem="w6V-xm-SVx" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="24" id="DDz-ah-QrX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cQt-3Y-FAO" secondAttribute="trailing" constant="47" id="HH0-X4-Ew5"/>
+                            <constraint firstItem="p15-MM-dCy" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="44" id="SUJ-ya-lv5"/>
+                            <constraint firstItem="qSw-bC-qak" firstAttribute="top" secondItem="5OR-Kv-Uep" secondAttribute="bottom" constant="8" id="Usz-Qo-DZX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qSw-bC-qak" secondAttribute="leading" id="Vp7-D2-Qme"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="47" id="VuD-Rh-pzj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w6V-xm-SVx" secondAttribute="trailing" constant="47" id="Z2j-DJ-pvx"/>
+                            <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="eeK-fm-ehp"/>
+                            <constraint firstItem="oqd-do-MtB" firstAttribute="top" secondItem="5OR-Kv-Uep" secondAttribute="bottom" constant="11" id="fQt-t2-QjX"/>
+                            <constraint firstItem="p15-MM-dCy" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="hNM-L4-7qi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p15-MM-dCy" secondAttribute="trailing" constant="47" id="hoy-Qv-kDR"/>
+                            <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="irR-52-HRa"/>
+                            <constraint firstItem="w6V-xm-SVx" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="sxs-1n-Lhj"/>
+                            <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="t6J-eb-qt5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2h8-82-BlG"/>
+                                <exclude reference="eeK-fm-ehp"/>
+                                <exclude reference="t6J-eb-qt5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="detailArtistNameLabel" destination="cQt-3Y-FAO" id="bIC-6s-6s4"/>
