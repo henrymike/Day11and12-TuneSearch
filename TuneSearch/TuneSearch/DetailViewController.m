@@ -41,6 +41,7 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     _detailTrackPriceLabel.text = [formatter stringFromNumber:[_selectedResult objectForKey:@"trackPrice"]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

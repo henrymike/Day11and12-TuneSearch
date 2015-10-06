@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5598BCD91BC43BC400374B60 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5598BCD81BC43BC400374B60 /* SystemConfiguration.framework */; };
+		5598BCDB1BC43BCB00374B60 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5598BCDA1BC43BCB00374B60 /* Social.framework */; };
 		55DA9F9C1BC2E58E00C25A3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DA9F9B1BC2E58E00C25A3C /* main.m */; };
 		55DA9F9F1BC2E58E00C25A3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DA9F9E1BC2E58E00C25A3C /* AppDelegate.m */; };
 		55DA9FA21BC2E58E00C25A3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DA9FA11BC2E58E00C25A3C /* ViewController.m */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5598BCD81BC43BC400374B60 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5598BCDA1BC43BCB00374B60 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		55DA9F971BC2E58E00C25A3C /* TuneSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuneSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55DA9F9B1BC2E58E00C25A3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55DA9F9D1BC2E58E00C25A3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5598BCDB1BC43BCB00374B60 /* Social.framework in Frameworks */,
+				5598BCD91BC43BC400374B60 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +57,8 @@
 		55DA9F8E1BC2E58E00C25A3C = {
 			isa = PBXGroup;
 			children = (
+				5598BCDA1BC43BCB00374B60 /* Social.framework */,
+				5598BCD81BC43BC400374B60 /* SystemConfiguration.framework */,
 				55DA9F991BC2E58E00C25A3C /* TuneSearch */,
 				55DA9F981BC2E58E00C25A3C /* Products */,
 			);
@@ -316,6 +324,7 @@
 				55DA9FB01BC2E58E00C25A3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

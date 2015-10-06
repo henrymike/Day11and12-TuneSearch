@@ -38,6 +38,17 @@ bool serverAvailable;
     NSDictionary *selectedResult = _iTunesArray[indexPath.row];
     cell.trackNameLabel.text = [selectedResult objectForKey:@"trackName"];
     cell.artistNameLabel.text = [selectedResult objectForKey:@"artistName"];
+    
+    NSString *fileName = [selectedResult objectForKey:@"artworkUrl30"];
+    NSString *lastComponent = [[NSURL URLWithString:fileName] lastPathComponent];
+    if ([self fileIsLocal:lastComponent]) {
+        NSLog(@"Local %@",lastComponent);
+        cell.albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:lastComponent]];
+    } else {
+        NSLog(@"Not Local %@ at path %@",lastComponent,fileName);
+        [self getImageFromServer:lastComponent fromURL:fileName atIndexPath:indexPath];
+    }
+
     return cell;
 }
 
@@ -48,11 +59,26 @@ bool serverAvailable;
     destController.selectedResult = selectedResult;
 }
 
+#pragma mark - File System Methods
+
+- (NSString *)getDocumentsDirectory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
+    NSString *documentDirectory = paths[0];
+    NSLog(@"DocPath:%@",paths[0]);
+    return documentDirectory;
+}
+
+- (BOOL)fileIsLocal:(NSString *)filename {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filePath = [[self getDocumentsDirectory] stringByAppendingPathComponent:filename];
+    return [fileManager fileExistsAtPath:filePath];
+}
+
 #pragma mark - Interactivity Methods
 
 - (void)getData {
     NSLog(@"Get data");
-    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=%@",_hostName,_resultsSearchBar.text]];
+    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=%@&limit=5",_hostName,_resultsSearchBar.text]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:fileURL];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
@@ -85,6 +111,37 @@ bool serverAvailable;
         
 
 #pragma mark - Network Methods
+
+- (void)getImageFromServer:(NSString *)localFileName fromURL:(NSString *)fullFileName atIndexPath:(NSIndexPath *)indexPath {
+    if (serverAvailable) {
+        NSURL *fileURL = [NSURL URLWithString:fullFileName];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:fileURL];
+        [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+        [request setTimeoutInterval:30.0];
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSLog(@"PreSession");
+        [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSLog(@"Length:%li error:%@",[data length],error);
+            if (([data length]> 0) && (error == nil)) {
+                NSLog(@"Got Data");
+                NSString *savedFilePath = [[self getDocumentsDirectory] stringByAppendingPathComponent:localFileName];
+                UIImage *imageTemp = [UIImage imageWithData:data];
+                if (imageTemp != nil) {
+                    [data writeToFile:savedFilePath atomically:true];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [_iTunesTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    });
+                }
+            } else {
+                NSLog(@"No data");
+            }
+        }] resume];
+    } else {
+        NSLog(@"Server not available");
+        //TODO: notify user that server is not available
+    }
+}
 
 - (void)updateReachabilityStatus:(Reachability *)currReach {
     NSParameterAssert([currReach isKindOfClass:[Reachability class]]);

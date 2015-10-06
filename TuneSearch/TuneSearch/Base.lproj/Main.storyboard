@@ -55,6 +55,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="albumArtImage" destination="LdZ-ti-2De" id="g8P-MY-AXi"/>
                                             <outlet property="artistNameLabel" destination="aZA-aV-PRa" id="Nic-Jk-qDW"/>
                                             <outlet property="trackNameLabel" destination="LaS-hD-F8J" id="hHp-Ox-6zK"/>
                                             <segue destination="X0c-O9-UCZ" kind="show" identifier="segueDetail" id="jD8-Nx-Lm0"/>
