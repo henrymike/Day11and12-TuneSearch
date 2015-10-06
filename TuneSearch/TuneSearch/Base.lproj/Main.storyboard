@@ -119,6 +119,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-xm-SVx">
+                                <rect key="frame" x="135" y="120" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-MM-dCy">
                                 <rect key="frame" x="135" y="140" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -133,46 +139,81 @@
                                     <constraint firstAttribute="width" constant="100" id="lmE-mD-3Hu"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-xm-SVx">
-                                <rect key="frame" x="135" y="120" width="398" height="21"/>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKz-Ef-bhJ">
+                                <rect key="frame" x="20" y="180" width="140" height="20"/>
+                                <color key="backgroundColor" red="0.62423058710000001" green="0.62423058710000001" blue="0.62423058710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="47P-7e-6Hr"/>
+                                    <constraint firstAttribute="height" constant="20" id="yD0-vS-UiW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Share via Twitter">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaTwitter:" destination="X0c-O9-UCZ" eventType="touchUpInside" id="CwZ-5H-IVq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byJ-zk-Dgn">
+                                <rect key="frame" x="20" y="208" width="140" height="20"/>
+                                <color key="backgroundColor" red="0.62423058710000001" green="0.62423058710000001" blue="0.62423058710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="2qq-q3-L7L"/>
+                                    <constraint firstAttribute="height" constant="20" id="o28-tp-NlL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Send via Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendViaEmail:" destination="X0c-O9-UCZ" eventType="touchUpInside" id="PBr-Ow-GmB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="byJ-zk-Dgn" secondAttribute="trailing" constant="420" id="054-Rw-nV2"/>
                             <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="2h8-82-BlG"/>
                             <constraint firstItem="oqd-do-MtB" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="5M4-4k-ryb"/>
                             <constraint firstItem="cQt-3Y-FAO" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="4" id="Bsd-7Z-Bdd"/>
                             <constraint firstItem="w6V-xm-SVx" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="24" id="DDz-ah-QrX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cQt-3Y-FAO" secondAttribute="trailing" constant="47" id="HH0-X4-Ew5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="byJ-zk-Dgn" secondAttribute="leading" id="LVw-rM-MdC"/>
                             <constraint firstItem="p15-MM-dCy" firstAttribute="top" secondItem="oqd-do-MtB" secondAttribute="bottom" constant="44" id="SUJ-ya-lv5"/>
                             <constraint firstItem="qSw-bC-qak" firstAttribute="top" secondItem="5OR-Kv-Uep" secondAttribute="bottom" constant="8" id="Usz-Qo-DZX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="qSw-bC-qak" secondAttribute="leading" id="Vp7-D2-Qme"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="47" id="VuD-Rh-pzj"/>
+                            <constraint firstItem="byJ-zk-Dgn" firstAttribute="top" secondItem="qSw-bC-qak" secondAttribute="bottom" constant="36" id="Yl4-Z4-Aq5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w6V-xm-SVx" secondAttribute="trailing" constant="47" id="Z2j-DJ-pvx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NKz-Ef-bhJ" secondAttribute="trailing" constant="420" id="b5m-Po-uid"/>
                             <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="eeK-fm-ehp"/>
                             <constraint firstItem="oqd-do-MtB" firstAttribute="top" secondItem="5OR-Kv-Uep" secondAttribute="bottom" constant="11" id="fQt-t2-QjX"/>
                             <constraint firstItem="p15-MM-dCy" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="hNM-L4-7qi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p15-MM-dCy" secondAttribute="trailing" constant="47" id="hoy-Qv-kDR"/>
                             <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="irR-52-HRa"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="NKz-Ef-bhJ" secondAttribute="leading" id="orH-6Y-2sF"/>
                             <constraint firstItem="w6V-xm-SVx" firstAttribute="leading" secondItem="qSw-bC-qak" secondAttribute="trailing" constant="15" id="sxs-1n-Lhj"/>
                             <constraint firstItem="cQt-3Y-FAO" firstAttribute="leading" secondItem="oqd-do-MtB" secondAttribute="trailing" constant="-398" id="t6J-eb-qt5"/>
+                            <constraint firstItem="NKz-Ef-bhJ" firstAttribute="top" secondItem="qSw-bC-qak" secondAttribute="bottom" constant="8" id="zkZ-jT-WLM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="2h8-82-BlG"/>
                                 <exclude reference="eeK-fm-ehp"/>
                                 <exclude reference="t6J-eb-qt5"/>
+                                <exclude reference="b5m-Po-uid"/>
+                                <exclude reference="054-Rw-nV2"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="albumArtImage" destination="qSw-bC-qak" id="VHF-64-3Ha"/>
                         <outlet property="detailArtistNameLabel" destination="cQt-3Y-FAO" id="bIC-6s-6s4"/>
                         <outlet property="detailCollectionNameLabel" destination="w6V-xm-SVx" id="awz-xg-Hpr"/>
                         <outlet property="detailTrackNameLabel" destination="oqd-do-MtB" id="JCD-py-u3a"/>
                         <outlet property="detailTrackPriceLabel" destination="p15-MM-dCy" id="vGI-56-C2y"/>
+                        <outlet property="shareEmailButton" destination="byJ-zk-Dgn" id="BxB-ik-eFj"/>
+                        <outlet property="shareTwitterButton" destination="NKz-Ef-bhJ" id="ten-Xm-wBh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Umr-DV-nBb" userLabel="First Responder" sceneMemberID="firstResponder"/>

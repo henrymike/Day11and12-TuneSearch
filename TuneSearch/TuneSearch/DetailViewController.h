@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <Social/Social.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSDictionary *selectedResult;
 

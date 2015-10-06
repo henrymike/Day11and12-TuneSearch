@@ -41,6 +41,7 @@ bool serverAvailable;
     
     NSString *fileName = [selectedResult objectForKey:@"artworkUrl30"];
     NSString *lastComponent = [[NSURL URLWithString:fileName] lastPathComponent];
+//    NSString *cleanURL = [[NSString stringby]
     if ([self fileIsLocal:lastComponent]) {
         NSLog(@"Local %@",lastComponent);
         cell.albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:lastComponent]];
@@ -59,20 +60,7 @@ bool serverAvailable;
     destController.selectedResult = selectedResult;
 }
 
-#pragma mark - File System Methods
 
-- (NSString *)getDocumentsDirectory {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-    NSString *documentDirectory = paths[0];
-    NSLog(@"DocPath:%@",paths[0]);
-    return documentDirectory;
-}
-
-- (BOOL)fileIsLocal:(NSString *)filename {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *filePath = [[self getDocumentsDirectory] stringByAppendingPathComponent:filename];
-    return [fileManager fileExistsAtPath:filePath];
-}
 
 #pragma mark - Interactivity Methods
 
@@ -108,7 +96,20 @@ bool serverAvailable;
     [self getData];
 }
 
-        
+#pragma mark - File System Methods
+
+- (NSString *)getDocumentsDirectory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
+    NSString *documentDirectory = paths[0];
+    NSLog(@"DocPath:%@",paths[0]);
+    return documentDirectory;
+}
+
+- (BOOL)fileIsLocal:(NSString *)filename {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filePath = [[self getDocumentsDirectory] stringByAppendingPathComponent:filename];
+    return [fileManager fileExistsAtPath:filePath];
+}
 
 #pragma mark - Network Methods
 
