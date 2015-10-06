@@ -8,13 +8,14 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "DetailViewController.h"
+#import "ResultsTableViewCell.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSString                  *hostName;
 @property (nonatomic, strong) AppDelegate               *appDelegate;
 @property (nonatomic, strong) IBOutlet      UISearchBar *resultsSearchBar;
-@property (nonatomic, strong) NSArray                   *iTunesArray;
 
 @end
 
@@ -32,11 +33,19 @@ bool serverAvailable;
     return _iTunesArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ResultsCell"];
+- (ResultsTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ResultsTableViewCell *cell = (ResultsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ResultsCell"];
     NSDictionary *selectedResult = _iTunesArray[indexPath.row];
-    cell.textLabel.text = [selectedResult objectForKey:@"trackName"];
+    cell.trackNameLabel.text = [selectedResult objectForKey:@"trackName"];
+    cell.artistNameLabel.text = [selectedResult objectForKey:@"artistName"];
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DetailViewController *destController = [segue destinationViewController];
+    NSIndexPath *indexPath = [_iTunesTableView indexPathForSelectedRow];
+    NSDictionary *selectedResult = _iTunesArray[indexPath.row];
+    destController.selectedResult = selectedResult;
 }
 
 #pragma mark - Interactivity Methods
