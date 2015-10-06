@@ -37,7 +37,10 @@
     _detailTrackNameLabel.text = [_selectedResult objectForKey:@"trackName"];
     _detailArtistNameLabel.text = [_selectedResult objectForKey:@"artistName"];
     _detailCollectionNameLabel.text = [_selectedResult objectForKey:@"collectionName"];
-//    _detailTrackPriceLabel.text = [_selectedResult objectForKey:@"trackPrice"];
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    _detailTrackPriceLabel.text = [formatter stringFromNumber:[_selectedResult objectForKey:@"trackPrice"]];
 }
 
 - (void)didReceiveMemoryWarning {
