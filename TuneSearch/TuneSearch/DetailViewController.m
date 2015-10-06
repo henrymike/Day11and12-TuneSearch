@@ -6,6 +6,7 @@
 //  Copyright © 2015 Mike Henry. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ViewController.h"
 #import "DetailViewController.h"
 
@@ -29,8 +30,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSDictionary *selectedResult = _iTunesArray[indexPath.row];
-    _detailArtistNameLabel = [_selectedResult objectForKey:@"artistName"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _detailTrackNameLabel.text = [_selectedResult objectForKey:@"trackName"];
+    _detailArtistNameLabel.text = [_selectedResult objectForKey:@"artistName"];
+    _detailCollectionNameLabel.text = [_selectedResult objectForKey:@"collectionName"];
+//    _detailTrackPriceLabel.text = [_selectedResult objectForKey:@"trackPrice"];
 }
 
 - (void)didReceiveMemoryWarning {

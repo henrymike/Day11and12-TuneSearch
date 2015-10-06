@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1057" y="242"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="289-TO-xep">
             <objects>
-                <viewController id="X0c-O9-UCZ" sceneMemberID="viewController">
+                <viewController id="X0c-O9-UCZ" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5OR-Kv-Uep"/>
                         <viewControllerLayoutGuide type="bottom" id="GVa-NA-eJO"/>
@@ -105,25 +105,25 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQt-3Y-FAO">
-                                <rect key="frame" x="174" y="108" width="91" height="21"/>
+                                <rect key="frame" x="174" y="108" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-do-MtB">
-                                <rect key="frame" x="174" y="84" width="92" height="21"/>
+                                <rect key="frame" x="174" y="84" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-xm-SVx">
-                                <rect key="frame" x="174" y="132" width="126" height="21"/>
+                                <rect key="frame" x="174" y="132" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-MM-dCy">
-                                <rect key="frame" x="174" y="155" width="86" height="21"/>
+                                <rect key="frame" x="174" y="155" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,6 +134,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="detailArtistNameLabel" destination="cQt-3Y-FAO" id="bIC-6s-6s4"/>
+                        <outlet property="detailCollectionNameLabel" destination="w6V-xm-SVx" id="awz-xg-Hpr"/>
+                        <outlet property="detailTrackNameLabel" destination="oqd-do-MtB" id="JCD-py-u3a"/>
+                        <outlet property="detailTrackPriceLabel" destination="p15-MM-dCy" id="vGI-56-C2y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Umr-DV-nBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

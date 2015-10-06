@@ -12,5 +12,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *trackNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *artistNameLabel;
+@property (nonatomic, weak) IBOutlet UIImage *albumArtImage;
 
 @end
