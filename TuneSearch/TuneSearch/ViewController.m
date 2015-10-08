@@ -39,15 +39,17 @@ bool serverAvailable;
     cell.trackNameLabel.text = [selectedResult objectForKey:@"trackName"];
     cell.artistNameLabel.text = [selectedResult objectForKey:@"artistName"];
     
-    NSString *fileName = [selectedResult objectForKey:@"artworkUrl30"];
-    NSString *lastComponent = [[NSURL URLWithString:fileName] lastPathComponent];
-//    NSString *cleanURL = [[NSString stringby]
-    if ([self fileIsLocal:lastComponent]) {
-        NSLog(@"Local %@",lastComponent);
-        cell.albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:lastComponent]];
+    NSString *fileNameURL = [selectedResult objectForKey:@"artworkUrl100"];
+    NSString *fileNameFull = [fileNameURL stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    NSLog(@"Files %@ & %@",fileNameFull,fileNameURL);
+    fileNameFull = [fileNameFull stringByReplacingOccurrencesOfString:@":" withString:@""];
+
+    if ([self fileIsLocal:fileNameFull]) {
+        NSLog(@"Local %@",fileNameFull);
+        cell.albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:fileNameFull]];
     } else {
-        NSLog(@"Not Local %@ at path %@",lastComponent,fileName);
-        [self getImageFromServer:lastComponent fromURL:fileName atIndexPath:indexPath];
+        NSLog(@"Not Local %@",fileNameURL);
+        [self getImageFromServer:fileNameFull fromURL:fileNameURL atIndexPath:indexPath];
     }
 
     return cell;
@@ -66,7 +68,7 @@ bool serverAvailable;
 
 - (void)getData {
     NSLog(@"Get data");
-    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=%@&limit=5",_hostName,_resultsSearchBar.text]];
+    NSURL *fileURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/search?term=%@",_hostName,_resultsSearchBar.text]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:fileURL];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];

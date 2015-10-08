@@ -27,6 +27,10 @@
 
 #pragma mark - Interactivity Methods
 
+//- (void)dismissMessageControllers {
+//    
+//}
+
 - (IBAction)sendViaEmail:(id)sender {
     NSLog(@"Email Button");
     if ([MFMailComposeViewController canSendMail]) {
@@ -78,9 +82,22 @@
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     _detailTrackPriceLabel.text = [formatter stringFromNumber:[_selectedResult objectForKey:@"trackPrice"]];
     
-    NSString *fileName = [_selectedResult objectForKey:@"artworkUrl30"];
-    NSString *lastComponent = [[NSURL URLWithString:fileName] lastPathComponent];
-        _albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:lastComponent]];
+//    NSString *fileName = [_selectedResult objectForKey:@"artworkUrl30"];
+//    NSString *lastComponent = [[NSURL URLWithString:fileName] lastPathComponent];
+//        _albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:lastComponent]];
+    
+    NSString *fileNameURL = [_selectedResult objectForKey:@"artworkUrl100"];
+    NSString *fileNameFull = [fileNameURL stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    NSLog(@"Files %@ & %@",fileNameFull,fileNameURL);
+    fileNameFull = [fileNameFull stringByReplacingOccurrencesOfString:@":" withString:@""];
+    
+    if ([self fileIsLocal:fileNameFull]) {
+        NSLog(@"Local %@",fileNameFull);
+        _albumArtImage.image = [UIImage imageNamed:[[self getDocumentsDirectory] stringByAppendingPathComponent:fileNameFull]];
+//    } else {
+//        NSLog(@"Not Local %@",fileNameURL);
+//        [self getImageFromServer:fileNameFull fromURL:fileNameURL atIndexPath:indexPath];
+    }
     
 }
 
